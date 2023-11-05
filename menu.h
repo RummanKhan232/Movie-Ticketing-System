@@ -167,3 +167,81 @@ int book_Ticket(void)
 
     return sum_ticket;
 }
+
+void payBkash(struct UserInfo user)
+{
+    int count;
+    int count1;
+
+    while (1)
+    {
+        printf("Enter Your Bkash account Number: \n");
+        scanf("%s", user.account_no);
+
+        count1 = strlen(user.account_no);
+
+        if (count1 != 11)
+        {
+            printf("Invalid Account number, please enter a 11 digit account number\n");
+            continue;
+        }
+        break;
+    }
+
+    while (1)
+    {
+        printf("Enter the 5 digit Pin Number> \n");
+        scanf("%s", user.pin);
+
+        count = strlen(user.pin);
+
+        if (count != 5)
+        {
+            printf("Incorrect Pin number, please enter a 5 digit Pin Number\n");
+            continue;
+        }
+        break;
+    }
+
+    printf("Payment Successful, Thank You!\n");
+}
+
+void payNagad(struct UserInfo user)
+{
+    int count;
+    int count1;
+
+    while (1)
+    {
+        printf("Enter Your Nagad account Number: \n");
+        scanf("%s", user.account_no);
+
+        count1 = strlen(user.account_no);
+
+        if (count1 != 11)
+        {
+            printf("Invalid Account number, please enter a 11 digit account number\n");
+            continue;
+        }
+        break;
+    }
+
+    while (1)
+    {
+        printf("Enter the 4 digit Pin Number> \n");
+        scanf("%s", user.pin);
+
+        count = strlen(user.pin);
+
+        if (count != 4)
+        {
+            printf("Incorrect Pin number, please enter the 4 digit Pin Number\n");
+            continue;
+        }
+        break;
+    }
+
+    printf("Payment Successful, Thank You!\n");
+}
+
+
