@@ -108,3 +108,140 @@ void main(void)
     if (choice == 5)
         printf("Thanks For Visiting Our Server!\n");
 }
+
+int book_Ticket(void)
+
+{
+    initializeSeats();
+
+    int sum_ticket = 0;
+
+    while (1)
+    {
+        printf("\n1. Spider-Man: Far From Home \n");
+        printf("2. Avengers: Infinity War\n");
+        printf("3. Joker\n");
+
+        printf("\nChoose a movie (1-%d) or 0 to exit: ", MAX_MOVIES);
+        int movie;
+        scanf("%d", &movie);
+
+        if (movie == 0)
+
+            break;
+
+        else if (movie < 1 || movie > MAX_MOVIES)
+
+            printf("Invalid movie selection. Please try again.\n");
+
+        else
+        {
+            displaySeats(movie - 1);
+
+            while (1)
+            {
+                int row, col;
+                printf("\nEnter the row and column (e.g. 2 3) for the seat you want to book (0 to exit): \n");
+                scanf("%d %d", &row, &col);
+
+                if (row == 0 || col == 0)
+                {
+                    break;
+                }
+
+                if (bookSeat(movie - 1, row, col))
+                {
+                    displaySeats(movie - 1);
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < MAX_MOVIES; i++)
+    {
+        printf("\tMovie %d: Successfully booked %d tickets\n", i + 1, num_tickets[i]);
+        sum_ticket += num_tickets[i];
+    }
+
+    printf(" \tYou booked a total of %d tickets\n", sum_ticket);
+
+    return sum_ticket;
+}
+
+void payBkash(struct UserInfo user)
+{
+    int count;
+    int count1;
+
+    while (1)
+    {
+        printf("Enter Your Bkash account Number: \n");
+        scanf("%s", user.account_no);
+
+        count1 = strlen(user.account_no);
+
+        if (count1 != 11)
+        {
+            printf("Invalid Account number, please enter a 11 digit account number\n");
+            continue;
+        }
+        break;
+    }
+
+    while (1)
+    {
+        printf("Enter the 5 digit Pin Number> \n");
+        scanf("%s", user.pin);
+
+        count = strlen(user.pin);
+
+        if (count != 5)
+        {
+            printf("Incorrect Pin number, please enter a 5 digit Pin Number\n");
+            continue;
+        }
+        break;
+    }
+
+    printf("Payment Successful, Thank You!\n");
+}
+
+void payNagad(struct UserInfo user)
+{
+    int count;
+    int count1;
+
+    while (1)
+    {
+        printf("Enter Your Nagad account Number: \n");
+        scanf("%s", user.account_no);
+
+        count1 = strlen(user.account_no);
+
+        if (count1 != 11)
+        {
+            printf("Invalid Account number, please enter a 11 digit account number\n");
+            continue;
+        }
+        break;
+    }
+
+    while (1)
+    {
+        printf("Enter the 4 digit Pin Number> \n");
+        scanf("%s", user.pin);
+
+        count = strlen(user.pin);
+
+        if (count != 4)
+        {
+            printf("Incorrect Pin number, please enter the 4 digit Pin Number\n");
+            continue;
+        }
+        break;
+    }
+
+    printf("Payment Successful, Thank You!\n");
+}
+
+
