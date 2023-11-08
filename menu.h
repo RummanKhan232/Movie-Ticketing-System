@@ -244,4 +244,40 @@ void payNagad(struct UserInfo user)
     printf("Payment Successful, Thank You!\n");
 }
 
+void payCard(struct UserInfo user)
+{
+    int count;
+    int count1;
 
+    while (1)
+    {
+        printf("Enter Your 8 digit Card Number: \n");
+        scanf("%s", user.card);
+
+        count1 = strlen(user.card);
+
+        if (count1 != 8)
+        {
+            printf("Invalid, please enter a 8 digit card number\n");
+            continue;
+        }
+        break;
+    }
+
+    while (1)
+    {
+        printf("Enter the 6 digit Pin Number> \n");
+        scanf("%s", user.pin);
+
+        count = strlen(user.pin);
+
+        if (count != 6)
+        {
+            printf("Incorrect Pin number, please enter the 6 digit Pin Number\n");
+            continue;
+        }
+        break;
+    }
+
+    printf("Payment Successful, Thank You!\n");
+}
